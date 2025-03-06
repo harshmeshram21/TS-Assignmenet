@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- No initial <h1> -->
+    </div>
+    <button id="changeBtn">Click Me</button>
+
+    <script>
+      document.getElementById("changeBtn").onclick = function () {
+        // Always check for <h1> dynamically
+        let heading = document.getElementById("heading");
+
+        if (!heading) {
+          // If <h1> doesn't exist, create one
+          heading = document.createElement("h1");
+          heading.id = "heading";
+          document.getElementById("root").appendChild(heading);
+        }
+
+        // Update the text
+        heading.textContent = "Hello, World!";
+      };
+    </script>
+  </body>
+</html>
